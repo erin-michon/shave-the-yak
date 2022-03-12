@@ -1,12 +1,17 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Login() {
+
   return (
+
     <div>
       <Link to="/signup">← Go to Signup</Link>
 
-      <h2>Login</h2>
+      <h2>Login Below</h2>
+
       <form>
+
         <div>
           <label htmlFor="email">Email address:</label>
           <input
@@ -16,6 +21,7 @@ function Login() {
             id="email"
           />
         </div>
+
         <div>
           <label htmlFor="pwd">Password:</label>
           <input
@@ -25,17 +31,15 @@ function Login() {
             id="pwd"
           />
         </div>
-        {error ? (
-          <div>
-            <p>The provided credentials are incorrect</p>
-          </div>
-        ) : null}
+
         <div>
           <button type="submit">Submit</button>
         </div>
+
       </form>
+
     </div>
   );
-}
+};
 
 export default Login;
