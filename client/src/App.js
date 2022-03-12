@@ -4,6 +4,7 @@ import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@ap
 import { setContext } from '@apollo/client/link/context';
 
 import './App.css';
+import './index.css';
 
 import Dashboard from './pages/Dashboard';
 import Home from './pages/Home';
@@ -36,7 +37,7 @@ const client = new ApolloClient({
 
 function App() {
   return (
-    <div className="App">
+    <div className="App bg-cover bg-[url('./assets/images/yak-muted.jpg')]">
       <ApolloProvider client={client}>
         <Router>
           <div>

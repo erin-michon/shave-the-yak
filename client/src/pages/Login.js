@@ -3,7 +3,7 @@ import React from 'react';
 function Login() {
   return (
     <div>
-      <Link to="/signup">← Go to Signup</Link>
+      {/* <Link to="/signup">← Go to Signup</Link> */}
 
       <h2>Login</h2>
       <form>
@@ -25,11 +25,11 @@ function Login() {
             id="pwd"
           />
         </div>
-        {error ? (
+        {/* {error ? (
           <div>
             <p>The provided credentials are incorrect</p>
           </div>
-        ) : null}
+        ) : null} */}
         <div>
           <button type="submit">Submit</button>
         </div>
