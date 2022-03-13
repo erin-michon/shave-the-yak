@@ -1,5 +1,3 @@
-//updated file name from Quiz to Quiz question to distinguish between "Quiz" page and component
-
 import React from 'react';
 
 function QuizQuestion() {
@@ -13,8 +11,14 @@ function QuizQuestion() {
                     <li>Choice 3</li>
                     <li>Choice 4</li>
                 </ul>
+                <button>Next Question</button>
             </div>
-            <button>Next Question</button>
+            <div>
+                <h2> Your Score</h2>
+                <h3> Current Score Shown Here</h3>
+                <button>Submit Score</button>
+            </div>
+            
         </div>
     );
   }
