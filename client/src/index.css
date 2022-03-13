@@ -2,3 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  html {
+    font-family: Proxima Nova, system-ui, sans-serif;
+  }
+}
+
+.underline {
+  position: relative;
+  color: black;
+  text-decoration: none;
+}
+
+.underline:hover {
+  color: white;
+}
+
+.underline:before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}   
+
+.underline:hover::before {
+      transform: scaleX(1);
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
