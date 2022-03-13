@@ -1,15 +1,17 @@
 import React from 'react';
-import LevelList from "../components/LevelList";
+import LevelList from '../components/LevelList';
 
 function Dashboard() {
-    return (
+  return (
+    <div className="flex justify-center text-center text-white">
+      <div>
+        <h1 className='pb-8 text-lg tracking-wide text-bold font-medium text-black'>Let's Play!</h1>
         <div>
-            <h2>Let's Play</h2>
-            <div>
-                <LevelList></LevelList>
-            </div>
+          <LevelList></LevelList>
         </div>
-    );
-  }
-  
-  export default Dashboard;
+      </div>
+    </div>
+  );
+}
+
+export default Dashboard;
