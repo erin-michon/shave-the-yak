@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 
 function Signup() {
   return (
-    <div>
+   <div className='flex justify-center'> 
+    <div className='p-4 border rounded border-4 bg-slate-600 bg-opacity-50 place-content-center'>
       <Link to="/login">← Go to Login</Link>
 
       <h2>Signup</h2>
@@ -48,6 +49,7 @@ function Signup() {
           <button type="submit">Submit</button>
         </div>
       </form>
+    </div>
     </div>
   );
 }

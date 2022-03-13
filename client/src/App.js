@@ -37,12 +37,12 @@ const client = new ApolloClient({
 
 function App() {
   return (
-    <div className="App bg-cover bg-[url('./assets/images/yak-muted.jpg')]">
+    <div className="App flex flex-col h-screen bg-cover bg-[url('./assets/images/yak-muted.jpg')]">
       <ApolloProvider client={client}>
         <Router>
           <div>
             <Nav />
-            <Routes>
+            <Routes className='flex-grow'>
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} /> 
               <Route path="/signup" element={<Signup />} />

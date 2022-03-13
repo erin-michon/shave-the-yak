@@ -7,3 +7,9 @@
     font-family: Proxima Nova, system-ui, sans-serif;
   }
 }
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
