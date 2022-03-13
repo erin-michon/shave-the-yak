@@ -8,6 +8,31 @@
   }
 }
 
+/* white text underline */
+.white-underline {
+  position: relative;
+  color: white;
+  text-decoration: none;
+}
+
+.white-underline:before {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.white-underline:hover::before {
+  transform: scaleX(1);
+}
+
+/* black text underline */
 .underline {
   position: relative;
   color: black;
@@ -19,7 +44,7 @@
 }
 
 .underline:before {
-  content: "";
+  content: '';
   position: absolute;
   display: block;
   width: 100%;
@@ -29,12 +54,13 @@
   background-color: white;
   transform: scaleX(0);
   transition: transform 0.3s ease;
-}   
-
-.underline:hover::before {
-      transform: scaleX(1);
 }
 
+.underline:hover::before {
+  transform: scaleX(1);
+}
+
+/* footer */
 footer {
   position: fixed;
   left: 0;
