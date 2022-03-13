@@ -22,7 +22,7 @@ function LevelList() {
             </div>
             <div>
             <Link to="/quiz">
-                <h1>Let's Get Shaving...</h1>
+                <h1>🪒-Let's Get Shaving...</h1>
             </Link>
             </div>
         </div>

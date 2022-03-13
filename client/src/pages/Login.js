@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 function Login() {
-
   return (
     <div className="flex justify-center text-white">
       <div className="p-4 border rounded border-4 bg-slate-600 bg-opacity-50 place-content-center">
