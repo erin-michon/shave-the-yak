@@ -21,18 +21,16 @@ const typeDefs = gql`
         name: String
     }
 
-    type Question {
-        _id: ID
-        question: String 
-        answers: String
-        correct: String 
-        points: Int
-        level: [Level]
-    }
 
     type Auth {
         token: ID
         user: User
+    }
+
+    type Query {
+        user: User
+        gameSession: [GameSession]
+
     }
 `;
 
