@@ -1,4 +1,6 @@
-const { Schema, model } = require('mongoose')
+// const { Schema, model } = require('mongoose')
+const { Schema } = require('mongoose')
+
 const dateFormat = require('../utils/dateFormat')
 
 const GameSessionSchema = new Schema(
@@ -11,11 +13,11 @@ const GameSessionSchema = new Schema(
     score: {
       type: Number,
       required: true
-    },
-    username: {
-      type: String,
-      required: true
     }
+    // username: {
+    //   type: String,
+    //   required: true
+    // }
   },
   {
     toJSON: {
@@ -24,8 +26,9 @@ const GameSessionSchema = new Schema(
   }
 )
 
-// create the GameSession model using the GameSessionSchema
-const GameSession = model('GameSession', GameSessionSchema)
+// // create the GameSession model using the GameSessionSchema
+// const GameSession = model('GameSession', GameSessionSchema)
 
-// export the GameSession model
-module.exports = GameSession
+// // export the GameSession model
+// module.exports = GameSession;
+module.exports = GameSessionSchema;
