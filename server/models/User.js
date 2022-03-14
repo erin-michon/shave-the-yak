@@ -21,11 +21,11 @@ const UserSchema = new Schema(
       required: true,
       minlength: 8
     },
-    gameSessions: [GameSession.schema]
-    // gameSessions: {
-    //   type: Schema.Types.ObjectId,
-    //   ref: 'GameSession'
-    // }
+    // gameSessions: [GameSession.schema]
+    gameSessions: {
+      type: Schema.Types.ObjectId,
+      ref: 'GameSession'
+    }
   }
 )
 
