@@ -1,13 +1,11 @@
 const mongoose = require('mongoose')
 
 mongoose.connect(
-  process.env.MONGODB_URI,
-  // placeholder for local
-  // || 'mongodb://localhost:27017/{heroku-name}',
+  process.env.MONGODB_URI || 'mongodb://localhost:27017/shave-the-yak',
   {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
+    useNewUrlParser: true, 
+    useUnifiedTopology: true,
   }
-)
+);
 
 module.exports = mongoose.connection
