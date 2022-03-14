@@ -17,7 +17,7 @@ import Nav from './components/Nav';
 
 
 const httpLink = createHttpLink({
-  uri:'/graphqul',
+  uri:'/graphql',
 });
 
 const authLink = setContext((_, { headers }) => {
