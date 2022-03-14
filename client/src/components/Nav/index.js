@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Nav = () => {
   return (
     <header>
-      <div className="p-4 pb-40 flex flex-row justify-between">
+      <div className="p-4 pb-40 flex flex-row justify-between font-medium">
         <nav className="p-4 text-lg tracking-wide">
           <Link to="/" className="underline">
             USERNAME
