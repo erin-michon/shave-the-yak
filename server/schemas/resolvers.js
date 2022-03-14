@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, GameSession } = require('../models');
+const { User } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -17,20 +17,20 @@ const resolvers = {
         users: async () => {
           return User.find()
           .select('-__v -password')
-          .populate('gameSessions')
+          // .populate('gameSessions')
         },
         user: async (parent, { username }) => {
           return User.findOne({ username })
           .select('-__v -password')
-          .populate('gameSessions')
-        },
-        gameSessions: async (parent, { username }) => {
-          const params = username ? {username} : {};
-          return GameSession.find(params).sort({ date: -1 });
-        },
-        gameSession: async (parent, { _id }) => {
-          return GameSession.findOne({ _id });
+          // .populate('gameSessions')
         }
+        // gameSessions: async (parent, { username }) => {
+        //   const params = username ? {username} : {};
+        //   return GameSession.find(params).sort({ date: -1 });
+        // },
+        // gameSession: async (parent, { _id }) => {
+        //   return GameSession.findOne({ _id });
+        // }
     },   
     Mutation: {
         login: async (parent, { email, password }) => {
