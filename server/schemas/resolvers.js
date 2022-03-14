@@ -8,7 +8,6 @@ const resolvers = {
             if (context.user) {
                 const userData = await User.findOne({ _id: context.user._id })
                   .select('-__v -password')
-                  .populate('gameSessions')        
                 return userData;
             }
 
@@ -55,6 +54,20 @@ const resolvers = {
       
             return { token, user };
         },
+        updateUser: async (parent, args, context) => {
+          if(context.user) {
+            return await User.findByIdAndUpdate(context.user._id, args, { new: true});
+          }
+
+          throw new AuthenticationError('Not logged in');
+        },
+        deleteUser: async (parent, { _id} , context) => {
+          if(context.user) {
+            return await User.findByIdAndDelete({ _id });
+          }
+
+          throw new AuthenticationError('Not logged in');
+        }
     }
 };
 
