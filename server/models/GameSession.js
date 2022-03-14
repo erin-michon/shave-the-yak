@@ -1,7 +1,7 @@
-const { Schema, model } = require('mongoose')
+const { Schema } = require('mongoose')
 const dateFormat = require('../utils/dateFormat')
 
-const GameSessionSchema = new Schema(
+const gameSessionSchema = new Schema(
   {
     date: {
       type: Date,
@@ -25,7 +25,7 @@ const GameSessionSchema = new Schema(
 )
 
 // create the GameSession model using the GameSessionSchema
-const GameSession = model('GameSession', GameSessionSchema)
+// const GameSession = model('GameSession', GameSessionSchema)
 
 // export the GameSession model
-module.exports = GameSession
+module.exports = gameSessionSchema
