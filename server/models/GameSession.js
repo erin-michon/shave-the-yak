@@ -1,6 +1,5 @@
-// const { Schema, model } = require('mongoose')
-const { Schema } = require('mongoose')
-
+const { Schema, model } = require('mongoose')
+// const { Schema } = require('mongoose')
 const dateFormat = require('../utils/dateFormat')
 
 const gameSessionSchema = new Schema(
@@ -27,8 +26,8 @@ const gameSessionSchema = new Schema(
 )
 
 // // create the GameSession model using the GameSessionSchema
-// const GameSession = model('GameSession', GameSessionSchema)
+const GameSession = model('GameSession', GameSessionSchema)
 
 // // export the GameSession model
-// module.exports = GameSession;
-module.exports = GameSessionSchema;
+module.exports = GameSession;
+// module.exports = GameSessionSchema;
