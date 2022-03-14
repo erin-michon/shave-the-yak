@@ -1,7 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useMutation } from '@apollo/client';
+import { ADD_USER } from '../utils/mutations';
+import AuthService from '../utils/auth';
 
 function Signup() {
+
+  const [formState, setFormState] = useState({ username: '', email: '', password: '' });
+
+  // update state based on form input changes
+  const handleChange = event => {
+    const { name, value } = event.target;
+
+    setFormState({
+      ...formState,
+      [name]: value
+    });
+  };
+
+  const [addUser, { error }] = useMutation(ADD_USER);
+
+  // submit form (notice the async!)
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    // use try/catch instead of promises to handle errors
+    try {
+      const { data } = await addUser({
+        variables: { ...formState }
+      });
+    
+      AuthService.login(data.addUser.token);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
   return (
     <div className="flex justify-center text-white">
       <div className="p-4 border rounded border-4 bg-slate-600 bg-opacity-50 place-content-center">
@@ -10,17 +44,22 @@ function Signup() {
         </Link>
 
         <h2 className="mt-4">Signup</h2>
-        <form>
+
+        <form onSubmit={handleFormSubmit}>
+
           <div className="mt-4">
             <label htmlFor="Username">Username:</label>
             <input
               className="placeholder-gray-900 bg-slate-600 bg-opacity-50 border-none w-full text-white-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
               placeholder="shavetheyak"
-              name="Username"
+              name="username"
               type="firstName"
               id="firstName"
+              value={formState.username}
+              onChange={handleChange}
             />
           </div>
+
           <div className="mt-4">
             <label htmlFor="email">Email:</label>
             <input
@@ -29,8 +68,11 @@ function Signup() {
               name="email"
               type="email"
               id="email"
+              value={formState.email}
+              onChange={handleChange}
             />
           </div>
+
           <div className="mt-4">
             <label htmlFor="pwd">Password:</label>
             <input
@@ -39,8 +81,11 @@ function Signup() {
               name="password"
               type="password"
               id="pwd"
+              value={formState.password}
+              onChange={handleChange}
             />
           </div>
+
           <div className="mt-4">
             <button
               type="submit"
@@ -49,7 +94,11 @@ function Signup() {
               Submit
             </button>
           </div>
+
         </form>
+
+        {error && <div>Sign up failed</div>}
+     
       </div>
     </div>
   );
