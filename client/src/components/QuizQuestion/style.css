@@ -1,0 +1,21 @@
+/* The answer selecteed by the user */
+.selected {
+    background-color: orange;
+}
+
+/* The list of options */
+.options {
+    padding: 8px;
+    border: 2px solid #000;
+    cursor: pointer;
+}
+
+ul {
+    list-style-type: none;
+}
+
+body{
+    font-family: Verdana;
+    font-size: 18px;
+    background-color: #2980B9; 
+}

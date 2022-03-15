@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
-const UserSchema = new Schema(
+const userSchema = new Schema(
   {
     username: {
       type: String,
@@ -33,7 +33,7 @@ const UserSchema = new Schema(
 )
 
 // before saving to db hash password to protect it
-UserSchema.pre('save', async function (next) {
+userSchema.pre('save', async function (next) {
   // protect new user sign-ups and changed passwords for existing users by hashing before sending to db
   if (this.isNew || this.isModified('password')) {
     const saltRounds = 10
@@ -44,12 +44,12 @@ UserSchema.pre('save', async function (next) {
 })
 
 // check entered password with hashed
-UserSchema.methods.isCorrectPassword = async function (password) {
+userSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password)
 }
 
 // create the User model using the UserSchema
-const User = model('User', UserSchema)
+const User = model('User', userSchema)
 
 // export the User model
 module.exports = User

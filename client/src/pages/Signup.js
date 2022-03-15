@@ -64,6 +64,7 @@ function Signup() {
               onChange={handleChange}
             />
           </div>
+
           <div className="mt-4">
             <label htmlFor="email">Email:</label>
             <input
@@ -76,6 +77,7 @@ function Signup() {
               onChange={handleChange}
             />
           </div>
+
           <div className="mt-4">
             <label htmlFor="pwd">Password:</label>
             <input
@@ -88,6 +90,7 @@ function Signup() {
               onChange={handleChange}
             />
           </div>
+
           <div className="mt-4">
             <button
               type="submit"
@@ -96,6 +99,7 @@ function Signup() {
               Submit
             </button>
           </div>
+
         </form>
         {error && <div>Signup failed </div>}
       </div>
