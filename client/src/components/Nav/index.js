@@ -31,8 +31,8 @@ const Nav = () => {
             " "
           )}
         </nav>
-        <h1 className="p-4 px-10 border rounded border-4 text-xl tracking-widest">
-          WELCOME TO SHAVE THE YAK!
+        <h1 className="p-4 px-10 border rounded border-4 text-3xl tracking-widest">
+          SHAVE THE YAK!
         </h1>
         <nav className="p-4 text-lg tracking-wide">
           {Auth.loggedIn() ? (
