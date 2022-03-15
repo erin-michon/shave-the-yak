@@ -1,19 +1,19 @@
 import React from 'react';
-import LevelList from "../components/LevelList";
-import LeaderBoard from "../components/LeaderBoard";
+import LevelList from '../components/LevelList';
 
 function Dashboard() {
-    return (
+  return (
+    <div className="flex text-center justify-center text-white">
+      <div>
+        <h1 className="pb-8 text-2xl tracking-wide text-bold font-medium text-black">
+          Do you have what it takes?
+        </h1>
         <div>
-            <h2>Let's Play</h2>
-            <div>
-                <LevelList></LevelList>
-            </div>
-            <div>
-                <LeaderBoard></LeaderBoard>
-            </div>
+          <LevelList></LevelList>
         </div>
-    );
-  }
-  
-  export default Dashboard;
+      </div>
+    </div>
+  );
+}
+
+export default Dashboard;
