@@ -463,7 +463,8 @@ const quizQuestions = [
 
 function QuizQuestion() {
     return (
-        <div>
+        <div className="px-32 py-40 flex justify-center text-center">
+            <div className="p-4 bg-cover bg-[url('./assets/images/yak-hair.jpg')]">
             <div>
                 <h2>QUESTION</h2>
                 <ul>
@@ -479,7 +480,7 @@ function QuizQuestion() {
                 <h3> Current Score Shown Here</h3>
                 <button>Submit Score</button>
             </div>
-            
+            </div>
         </div>
     );
   }
