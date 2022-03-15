@@ -12,11 +12,11 @@ const gameSessionSchema = new Schema(
     score: {
       type: Number,
       required: true
+    },
+    username: {
+      type: String,
+      required: true
     }
-    // username: {
-    //   type: String,
-    //   required: true
-    // }
   },
   {
     toJSON: {

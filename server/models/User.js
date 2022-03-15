@@ -20,7 +20,12 @@ const userSchema = new Schema(
       required: true,
       minlength: 8
     },
-    // gameSessions: [GameSessionSchema]
+    // gameSessions: [
+    //   {
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'GameSession'
+    //   }
+    // ]
     gameScore: {
       type: Number
     }
