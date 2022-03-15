@@ -14,19 +14,12 @@ const typeDefs = gql`
     user: User
   }
 
-  type GameSession {
-    _id: ID
-    date: String
-    score: Int
-    username: String
-  }
 
   type Query {
     me: User
     users: [User]
     user(username: String!): User
-    getGameSessions: [GameSession]
-    getGameSession(_id: ID!): GameSession
+    
 
   }
 
@@ -44,3 +37,18 @@ const typeDefs = gql`
 `;
 
 module.exports = typeDefs;
+
+
+
+//   type GameSession {
+//     _id: ID
+//     date: String
+//     score: Int
+//     username: String
+//   }
+
+
+// queries
+
+// getGameSessions: [GameSession]
+//     getGameSession(_id: ID!): GameSession

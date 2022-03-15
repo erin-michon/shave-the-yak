@@ -20,15 +20,15 @@ const UserSchema = new Schema(
       required: true,
       minlength: 8
     },
-    gameSessions: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'GameSession'
-      }
-    ]
-    // gameScore: {
-    //   type: Number
-    // }
+    // gameSessions: [
+    //   {
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'GameSession'
+    //   }
+    // ]
+    gameScore: {
+      type: Number
+    }
   }
 )
 
