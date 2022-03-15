@@ -1,4 +1,4 @@
-export const quizQuestions = [
+export const QuizData = [
     // LEVEL 1 QUESTIONS START
     /*
         ==================
@@ -8,10 +8,11 @@ export const quizQuestions = [
     {
         id: 0,
         question: 'Which of the following is NOT a description of what git is?',
-        opt1: 'a tool to easily create new versions of code base',
-        opt2: 'an IDE (integrated development environment) for code editing',
-        opt3: 'tool that gives developers the ability store code in cloud using services like GitHub',
-        opt4: 'option to easy to easily share code and collaborate with other developers',
+        options: [
+        'a tool to easily create new versions of code base', 
+        'an IDE (integrated development environment) for code editing',
+        'tool that gives developers the ability store code in cloud using services like GitHub',
+        'option to easy to easily share code and collaborate with other developers'],
         correctOpt: 'an IDE (integrated development environment) for code editing',
         points: 100,
         level: 1
@@ -19,10 +20,11 @@ export const quizQuestions = [
     {
         id: 1,
         question: 'Which of the following tags does NOT typically go inside the <body> element in an HTML file?',
-        opt1: '<header>',
-        opt2: '<HEAD>',
-        opt3: '<script>',
-        opt4: '<nav>',
+        options: [
+        '<header>',
+        '<HEAD>',
+        '<script>',
+        '<nav>'],
         correctOpt: '<HEAD>',
         points: 100,
         level: 1
@@ -35,10 +37,11 @@ export const quizQuestions = [
     {
         id: 2,
         question: 'Choose the common name used to declare variables as well as the name\'s type descriptor for a variable declared in a CSS file.',
-        opt1: ':base | pseudo-class',
-        opt2: ':global | global',
-        opt3: ':root | pseudo-class',
-        opt4: ':local | declarative',
+        options: [
+        ':base | pseudo-class',
+        ':global | global',
+        ':root | pseudo-class',
+        ':local | declarative'],
         correctOpt: ':root | pseudo-class',
         points: 100,
         level: 1
@@ -46,10 +49,11 @@ export const quizQuestions = [
     {
         id: 3,
         question: 'Which of the following is NOT something a pseudo-class can target?',
-        opt1: 'history of navigation',
-        opt2: 'name of a file',
-        opt3: 'status of an element\'s content',
-        opt4: 'position of the mouse cursor',
+        options: [
+        'history of navigation',
+        'name of a file',
+        'status of an element\'s content',
+        'position of the mouse cursor'],
         correctOpt: 'name of a file',
         points: 100,
         level: 1
@@ -62,10 +66,11 @@ export const quizQuestions = [
     {
         id: 4,
         question: 'Which of the following would NOT evaluate to "falsy"?',
-        opt1: '0',
-        opt2: 'NaN',
-        opt3: '"0"',
-        opt4: 'Null',
+        options: [
+        '0',
+        'NaN',
+        '"0"',
+        'Null'],
         correctOpt: '"0"',
         points: 100,
         level: 1
@@ -73,10 +78,11 @@ export const quizQuestions = [
     {
         id: 5,
         question: 'Which of the following is NOT a method you can use on an array?',
-        opt1: 'pluck()',
-        opt2: 'isArray()',
-        opt3: 'splice()',
-        opt4: 'slice()',
+        options: [
+        'pluck()',
+        'isArray()',
+        'splice()',
+        'slice()'],
         correctOpt: 'pluck()',
         points: 100,
         level: 1
@@ -89,10 +95,11 @@ export const quizQuestions = [
     {
         id: 6,
         question: 'Which of the following statements is UNTRUE?',
-        opt1: 'API stands for Application Programming Interface',
-        opt2: 'APIs turn complex code into simpler syntax for easier usage',
-        opt3: 'the DOM (Document Object Model) is a Web API',
-        opt4: 'APIs are not widely used in the software industry',
+        options: [
+        'API stands for Application Programming Interface',
+        'APIs turn complex code into simpler syntax for easier usage',
+        'the DOM (Document Object Model) is a Web API',
+        'APIs are not widely used in the software industry'],
         correctOpt: 'APIs are not widely used in the software industry',
         points: 100,
         level: 1
@@ -100,10 +107,11 @@ export const quizQuestions = [
     {
         id: 7,
         question: 'Select the item that is NOT a good way to learn more about Web APIs.',
-        opt1: 'Ask your peers',
-        opt2: 'Read the documentation',
-        opt3: 'Review previous code',
-        opt4: 'Suffer in silence',
+        options: [
+        'Ask your peers',
+        'Read the documentation',
+        'Review previous code',
+        'Suffer in silence'],
         correctOpt: 'Suffer in silence',
         points: 100,
         level: 1
@@ -116,10 +124,11 @@ export const quizQuestions = [
     {
         id: 8,
         question: 'Which of the following is NOT something a server is used for?',
-        opt1: 'as the means of communication between the client and a database',
-        opt2: 'to deliver content in response to a request from the client',
-        opt3: 'provide an eye-catching front-end for users to interact with',
-        opt4: 'customize a user\'s experience',
+        options: [
+        'as the means of communication between the client and a database',
+        'to deliver content in response to a request from the client',
+        'provide an eye-catching front-end for users to interact with',
+        'customize a user\'s experience'],
         correctOpt: 'provide an eye-catching front-end for users to interact with ',
         points: 100,
         level: 1
@@ -127,10 +136,11 @@ export const quizQuestions = [
     {
         id: 9,
         question: 'Which of the following is NOT an example of how a server might use a session?',
-        opt1: 'to allow a user to change the code of a page with developer tools',
-        opt2: 'to change the visibility or interactivity options on a page for logged in users',
-        opt3: 'to track how many times a user has visited the site without subscribing',
-        opt4: 'to save a user\'s progress in a game or contents of a cart',
+        options: [
+        'to allow a user to change the code of a page with developer tools',
+        'to change the visibility or interactivity options on a page for logged in users',
+        'to track how many times a user has visited the site without subscribing',
+        'to save a user\'s progress in a game or contents of a cart'],
         correctOpt: 'to allow a user to change the code of a page with developer tools',
         points: 100,
         level: 1
@@ -143,10 +153,11 @@ export const quizQuestions = [
     {
         id: 10,
         question: 'Which of the following is NOT considered a popular Third-Party API?',
-        opt1: 'Bootstrap',
-        opt2: 'PartyPartyParty',
-        opt3: 'jQuery',
-        opt4: 'Moment.js',
+        options: [
+        'Bootstrap',
+        'PartyPartyParty',
+        'jQuery',
+        'Moment.js'],
         correctOpt: 'PartyPartyParty',
         points: 100,
         level: 1
@@ -154,10 +165,11 @@ export const quizQuestions = [
     {
         id: 11,
         question: 'Which of the following is NOT something jQuery is known for?',
-        opt1: 'finding and manipulating DOM elements',
-        opt2: 'adding event listeners',
-        opt3: 'providing longer syntax to accomplish the same things JavaScript does',
-        opt4: 'allows for more general selectors instead of specific DOM paths to elements',
+        options: [
+        'finding and manipulating DOM elements',
+        'adding event listeners',
+        'providing longer syntax to accomplish the same things JavaScript does',
+        'allows for more general selectors instead of specific DOM paths to elements'],
         correctOpt: 'providing longer syntax to accomplish the same things JavaScript does',
         points: 100,
         level: 1
@@ -173,10 +185,11 @@ export const quizQuestions = [
     {
         id: 12,
         question: 'Which item below is NOT something relevant to Node.js?',
-        opt1: 'can be used to create interactive command-line applications',
-        opt2: 'requires all applications to be modularized',
-        opt3: 'was initially used as the runtime environment for V8 (Google Chrome\'s JavaScript engine)',
-        opt4: 'can utilize Node packages and modules for applications',
+        options: [
+        'can be used to create interactive command-line applications',
+        'requires all applications to be modularized',
+        'was initially used as the runtime environment for V8 (Google Chrome\'s JavaScript engine)',
+        'can utilize Node packages and modules for applications'],
         correctOpt: 'requires all applications to be modularized',
         points: 200,
         level: 2
@@ -184,10 +197,11 @@ export const quizQuestions = [
     {
         id: 13,
         question: 'Which of the following is NOT a file utilized for Node.js package implementation?',
-        opt1: 'node-package.manager',
-        opt2: 'node_modules',
-        opt3: 'package.json',
-        opt4: 'package-lock.json',
+        options: [
+        'node-package.manager',
+        'node_modules',
+        'package.json',
+        'package-lock.json'],
         correctOpt: 'node-package.manager',
         points: 200,
         level: 2
@@ -200,10 +214,11 @@ export const quizQuestions = [
     {
         id: 14,
         question: 'Which of the following is NOT one of the four main principles of Object-Oriented Programming?',
-        opt1: 'Iteration',
-        opt2: 'Encapsulation',
-        opt3: 'Polymorphism',
-        opt4: 'Abstraction',
+        options: [
+        'Iteration',
+        'Encapsulation',
+        'Polymorphism',
+        'Abstraction'],
         correctOpt: 'Iteration',
         points: 200,
         level: 2
@@ -211,10 +226,11 @@ export const quizQuestions = [
     {
         id: 15,
         question: 'Which of the following is NOT something you would typically include when setting up an object?',
-        opt1: 'Methods',
-        opt2: 'Properties',
-        opt3: 'Class',
-        opt4: 'Version',
+        options: [
+        'Methods',
+        'Properties',
+        'Class',
+        'Version'],
         correctOpt: 'Version',
         points: 200,
         level: 2
@@ -227,10 +243,11 @@ export const quizQuestions = [
     {
         id: 16,
         question: 'Which of the following is UNTRUE in regards to Express.js?',
-        opt1: 'it\'s a popular server framework for Node.js',
-        opt2: 'it allows you to quickly set up API routes and HTTP request methods',
-        opt3: 'it can accept requests and ideally sends back responses to them',
-        opt4: 'Express.js routes can be tested with a program called AlwaysAwake',
+        options: [
+        'it\'s a popular server framework for Node.js',
+        'it allows you to quickly set up API routes and HTTP request methods',
+        'it can accept requests and ideally sends back responses to them',
+        'Express.js routes can be tested with a program called AlwaysAwake'],
         correctOpt: 'Express.js routes can be tested with a program called AlwaysAwake',
         points: 200,
         level: 2
@@ -238,10 +255,11 @@ export const quizQuestions = [
     {
         id: 17,
         question: 'Which of the following is NOT a type of request you can use with Express.js?',
-        opt1: 'POST',
-        opt2: 'PUT',
-        opt3: 'PLEASE',
-        opt4: 'DELETE',
+        options: [
+        'POST',
+        'PUT',
+        'PLEASE',
+        'DELETE'],
         correctOpt: 'PLEASE',
         points: 200,
         level: 2
@@ -254,10 +272,11 @@ export const quizQuestions = [
     {
         id: 18,
         question: 'Which of the following is NOT relevant to SQL?',
-        opt1: 'SQL allows for the usage of plant.js files to plant fake data for testing',
-        opt2: 'SQL commands can be run in the Command Line Interface',
-        opt3: 'SQL is a relational database',
-        opt4: 'SQL stands for Structured Query Language',
+        options: [
+        'SQL allows for the usage of plant.js files to plant fake data for testing',
+        'SQL commands can be run in the Command Line Interface',
+        'SQL is a relational database',
+        'SQL stands for Structured Query Language'],
         correctOpt: 'SQL allows for the usage of plant.js files to plant fake data for testing',
         points: 200,
         level: 2
@@ -265,10 +284,11 @@ export const quizQuestions = [
     {
         id: 19,
         question: 'Select the option that is NOT one of the four basic CRUD operations in regards to database data.',
-        opt1: 'Delete',
-        opt2: 'Read',
-        opt3: 'Update',
-        opt4: 'Change',
+        options: [
+        'Delete',
+        'Read',
+        'Update',
+        'Change'],
         correctOpt: 'Change',
         points: 200,
         level: 2
@@ -281,10 +301,11 @@ export const quizQuestions = [
     {
         id: 20,
         question: 'Which of the following is NOT relevant to ORMs?',
-        opt1: 'ORM stands for Object-Relational Mapping',
-        opt2: 'jQuery is an ORM library',
-        opt3: 'Sequelize is an ORM library',
-        opt4: 'ORMs translate information from one source to another to facilitate conversations between sources',
+        options: [
+        'ORM stands for Object-Relational Mapping',
+        'jQuery is an ORM library',
+        'Sequelize is an ORM library',
+        'ORMs translate information from one source to another to facilitate conversations between sources'],
         correctOpt: 'jQuery is an ORM library',
         points: 200,
         level: 2
@@ -292,10 +313,11 @@ export const quizQuestions = [
     {
         id: 21,
         question: 'Which of the following is NOT an ability of the Sequelize ORM library?',
-        opt1: 'Sequelize can use hooks to manipulate data before it is sent to the database',
-        opt2: 'Sequelize methods cannot make exclusions when returning data from a database',
-        opt3: 'Sequelize can use CRUD methods to make adjustments to data',
-        opt4: 'Sequelize translates your code into database schema and queries using SQL',
+        options: [
+        'Sequelize can use hooks to manipulate data before it is sent to the database',
+        'Sequelize methods cannot make exclusions when returning data from a database',
+        'Sequelize can use CRUD methods to make adjustments to data',
+        'Sequelize translates your code into database schema and queries using SQL'],
         correctOpt: 'Sequelize methods cannot make exclusions when returning data from a database',
         points: 200,
         level: 2
@@ -308,10 +330,11 @@ export const quizQuestions = [
     {
         id: 22,
         question: 'Which of the following does NOT apply to the Model-View-Controller (MVC) paradigm?',
-        opt1: 'MVC follows a codebase structure based on separation of concerns',
-        opt2: 'Benefits from modularization of code',
-        opt3: 'The Controller portion involves working directly with SQL database data',
-        opt4: 'Users interact with the Controller and provide it input to manipulate data or change the View',
+        options: [
+        'MVC follows a codebase structure based on separation of concerns',
+        'Benefits from modularization of code',
+        'The Controller portion involves working directly with SQL database data',
+        'Users interact with the Controller and provide it input to manipulate data or change the View'],
         correctOpt: 'The Controller portion involves working directly with SQL database data',
         points: 200,
         level: 2
@@ -319,10 +342,11 @@ export const quizQuestions = [
     {
         id: 23,
         question: 'Which of the following is NOT a benefit to applying the MVC paradigm to a codebase?',
-        opt1: 'Making sure all codebase files have fewer than 100 lines of code',
-        opt2: 'Following the Separation of Concerns coding principle',
-        opt3: 'Making the codebase easier for others to read and maintain',
-        opt4: 'Supports test-driven development',
+        options: [
+        'Making sure all codebase files have fewer than 100 lines of code',
+        'Following the Separation of Concerns coding principle',
+        'Making the codebase easier for others to read and maintain',
+        'Supports test-driven development'],
         correctOpt: 'Making sure all codebase files have fewer than 100 lines of code',
         points: 200,
         level: 2
@@ -338,10 +362,11 @@ export const quizQuestions = [
     {
         id: 24,
         question: 'Which of the following is NOT considered one of the building blocks of JavaScript?',
-        opt1: 'Call Stack',
-        opt2: 'Memory Heap',
-        opt3: 'Callback Queue',
-        opt4: 'Function Pile',
+        options: [
+        'Call Stack',
+        'Memory Heap',
+        'Callback Queue',
+        'Function Pile'],
         correctOpt: 'Function Pile',
         points: 300,
         level: 3
@@ -349,10 +374,11 @@ export const quizQuestions = [
     {
         id: 25,
         question: 'Which of the following is NOT a good use of a regular expression?',
-        opt1: 'To check if an input value is properly formatted',
-        opt2: 'To search for a specific value',
-        opt3: 'To send data to a server',
-        opt4: 'To practice explaining computer science topics',
+        options: [
+        'To check if an input value is properly formatted',
+        'To search for a specific value',
+        'To send data to a server',
+        'To practice explaining computer science topics'],
         correctOpt: 'To send data to a server',
         points: 300,
         level: 3
@@ -365,10 +391,11 @@ export const quizQuestions = [
     {
         id: 26,
         question: 'Which of the following is NOT a benefit of a NoSQL database?',
-        opt1: 'Evolving data structures',
-        opt2: 'Consistent dataset size',
-        opt3: 'Rapid prototyping of data for new projects',
-        opt4: 'Increased scalability',
+        options: [
+        'Evolving data structures',
+        'Consistent dataset size',
+        'Rapid prototyping of data for new projects',
+        'Increased scalability'],
         correctOpt: 'Consistent dataset size',
         points: 300,
         level: 3
@@ -376,10 +403,11 @@ export const quizQuestions = [
     {
         id: 27,
         question: 'Which of the following tools would NOT be useful to an application using NoSQL?',
-        opt1: 'MongoDB',
-        opt2: 'IndexedDB',
-        opt3: 'Mongoose',
-        opt4: 'Sequelize',
+        options: [
+        'MongoDB',
+        'IndexedDB',
+        'Mongoose',
+        'Sequelize'],
         correctOpt: 'Sequelize',
         points: 300,
         level: 3
@@ -392,10 +420,11 @@ export const quizQuestions = [
     {
         id: 28,
         question: 'Which of the following steps is NOT something you would do when creating a Progressive Web Application?',
-        opt1: 'Maximize image files so they look better on smaller screens',
-        opt2: 'Cache assets for offline functionality using service workers',
-        opt3: 'Audit the application\'s performance measurements',
-        opt4: 'Define a dependency graph to track all of a file\'s dependencies',
+        options: [
+        'Maximize image files so they look better on smaller screens',
+        'Cache assets for offline functionality using service workers',
+        'Audit the application\'s performance measurements',
+        'Define a dependency graph to track all of a file\'s dependencies'],
         correctOpt: 'Maximize image files so they look better on smaller screens',
         points: 300,
         level: 3
@@ -403,10 +432,11 @@ export const quizQuestions = [
     {
         id: 29,
         question: 'Which of the following is NOT considered functionality of a service-worker?',
-        opt1: 'Reducing response times by using cached items instead of items directly on the server',
-        opt2: 'Hashing a user\'s password to protect it',
-        opt3: 'Providing custom images or messages as responses to requests',
-        opt4: 'Communicating to a user when they\'re offline',
+        options: [
+        'Reducing response times by using cached items instead of items directly on the server',
+        'Hashing a user\'s password to protect it',
+        'Providing custom images or messages as responses to requests',
+        'Communicating to a user when they\'re offline'],
         correctOpt: 'Hashing a user\'s password to protect it',
         points: 300,
         level: 3
@@ -419,10 +449,11 @@ export const quizQuestions = [
     {
         id: 30,
         question: 'Which of the following is UNTRUE regarding React?',
-        opt1: 'React is a JavaScript library useful for building user interfaces',
-        opt2: 'React is part of the MERN stack',
-        opt3: 'React is component-based',
-        opt4: 'React is a CSS library used to change how a webpage looks',
+        options: [
+        'React is a JavaScript library useful for building user interfaces',
+        'React is part of the MERN stack',
+        'React is component-based',
+        'React is a CSS library used to change how a webpage looks'],
         correctOpt: 'React is a CSS library used to change how a webpage looks',
         points: 300,
         level: 3
@@ -430,10 +461,11 @@ export const quizQuestions = [
     {
         id: 31,
         question: 'Which of the following is NOT relevant to React components?',
-        opt1: 'React components take in parameters called props',
-        opt2: 'React components cannot be updated once initially rendered',
-        opt3: 'React components can be customized',
-        opt4: 'React components are like JavaScript functions',
+        options: [
+        'React components take in parameters called props',
+        'React components cannot be updated once initially rendered',
+        'React components can be customized',
+        'React components are like JavaScript functions'],
         correctOpt: 'React components cannot be updated once initially rendered',
         points: 300,
         level: 3
@@ -446,10 +478,11 @@ export const quizQuestions = [
     {
         id: 32,
         question: 'Which of the following items is UNTRUE in regards to the MERN stack?',
-        opt1: 'It\'s made up of Mongoose, Express.js, React, and Node.js components',
-        opt2: 'It\'s useful in creating Single-Page Applications',
-        opt3: 'It involves both front and back-end development',
-        opt4: 'It can be used with cloud-based databases',
+        options: [
+        'It\'s made up of Mongoose, Express.js, React, and Node.js components',
+        'It\'s useful in creating Single-Page Applications',
+        'It involves both front and back-end development',
+        'It can be used with cloud-based databases'],
         correctOpt: 'It\'s made up of Mongoose, Express.js, React, and Node.js components',
         points: 300,
         level: 3
@@ -457,10 +490,11 @@ export const quizQuestions = [
     {
         id: 33,
         question: 'Which of the following is NOT a tool specifically used for a MERN application?',
-        opt1: 'GraphQL',
-        opt2: 'JSON Web Token',
-        opt3: 'Google\'s Lighthouse auditor',
-        opt4: 'React Router',
+        options: [
+        'GraphQL',
+        'JSON Web Token',
+        'Google\'s Lighthouse auditor',
+        'React Router'],
         correctOpt: 'Google\'s Lighthouse auditor',
         points: 300,
         level: 3
@@ -473,10 +507,11 @@ export const quizQuestions = [
     {
         id: 34,
         question: 'Which of the following is UNTRUE regarding the Redux library?',
-        opt1: 'It centralizes data for an app to make it predictable and easy to use',
-        opt2: 'It changes State by creating new versions instead of direct manipulation',
-        opt3: 'It follows the Single Source of Truth principle',
-        opt4: 'It relies on reductions in application functionality and complexity to work',
+        options: [
+        'It centralizes data for an app to make it predictable and easy to use',
+        'It changes State by creating new versions instead of direct manipulation',
+        'It follows the Single Source of Truth principle',
+        'It relies on reductions in application functionality and complexity to work'],
         correctOpt: 'It relies on reductions in application functionality and complexity to work',
         points: 300,
         level: 3
@@ -484,13 +519,14 @@ export const quizQuestions = [
     {
         id: 35,
         question: 'Which of the following is NOT considered one of the pieces of the Redux flow?',
-        opt1: 'Reducers',
-        opt2: 'Styles',
-        opt3: 'Store',
-        opt4: 'Actions',
+        options: [
+        'Reducers',
+        'Styles',
+        'Store',
+        'Actions'],
         correctOpt: 'Styles',
         points: 300,
         level: 3
     }
     // LEVEL 3 QUESTIONS END
-];
+]

@@ -1,40 +1,42 @@
 import React, {Component} from 'react';
-import {quizQuestions} from './QuizData';
+import {QuizData} from './QuizData';
+import './style.css';
 
-export class QuizQuestion extends Component {
+class QuizQuestion extends Component {
 
-    constructor(props) {
-        super(props)
-
-        this.state = {
-
-            userAnswer:null, //current users answer
-            currentIndex:0,  //current questions index
-            options: [opt1, opt2, opt3, opt4],     //the four options
-            quizEnd: false,  //determines if it's the last question
-            score: 0,        //holds the score
-            disabled: true   // determines the status of the buttons - cannot click next without answering?
-
-        }
+    state = {
+        userAnswer: null,    //current users answer
+        currentIndex: 0,  //current questions index
+        options: [],       //the four options
+        quizEnd: false,
+        score: 0,
+        disabled: true
     }
+    
 
     //Component that holds the current quiz
     loadQuiz = () => {
         const {currentIndex} = this.state //get the current question index
+        
+        console.log(currentIndex)
+        
         this.setState(() => {
             return {
-                question: quizQuestions[currentIndex].question,
-                options : quizQuestions[currentIndex].options,
-                answer: quizQuestions[currentIndex].answer          
+                question: QuizData[currentIndex].question,
+                options : QuizData[currentIndex].options,
+                answer: QuizData[currentIndex].correctOpt          
             }
-        }
-        )
+        })
     }
 
     //Obtains user's answer, correct answer and score.  Then increments current index (next question).
     //Then checks to see if the userAnswer is equal to the correct answer, if so it increments the score.
     nextQuestionHander = () => {
         const {userAnswer, answer, score} = this.state
+
+        console.log("next question button clicked")
+        console.log(answer)
+        console.log(currentIndex)
 
         //Check if correct answer and increment score
         if(userAnswer === answer){
@@ -48,22 +50,19 @@ export class QuizQuestion extends Component {
             userAnswer: null
         })
 
+        console.log(currentIndex + "is the current index")
+
+
     }
 
     componentDidMount() {
         this.loadQuiz();
     }
 
-    // Check the answer; sets the userAnswer state and enables the next button (disabled = false)
-    checkAnswer = answer => {
-        this.setState({
-            userAnswer: answer,
-            disabled:false
-        })
-    }
-
     componentDidUpdate(prevProps, prevState){
+
         const{currentIndex} = this.state;
+        
         if(this.state.currentIndex !== prevState.currentIndex){
             this.setState(() => {
                 return {
@@ -74,34 +73,74 @@ export class QuizQuestion extends Component {
         }
     }
 
+    // Check the answer; sets the userAnswer state and enables the next button (disabled = false)
+    checkAnswer = answer => {
+        this.setState({
+            userAnswer: answer,
+            disabled:false
+        })
+    }
+
     //Determines if the quiz has ended, if so - sets the quizEnd state to true
     //ADD FUNCTIONALITY TO DETERMINE IF X AMOUNT OF QUESTIONS HAVE BEEN LOST, REFER TO ONENOTE PROJ3 FOR LOGIC
     finishHandler =() => {
-        if(this.state.currentIndex === quizQuestions.length -1){
+
+        if(this.state.currentIndex === QuizData.length -1){
+            
             this.setState(() => {
+
                 return {
-                    question: quizQuestions[currentIndex].question,
-                    options : quizQuestions[currentIndex].options,
-                    answer: quizQuestions[currentIndex].answer          
+                    question: QuizData[currentIndex].question,
+                    options : QuizData[currentIndex].options,
+                    answer: QuizData[currentIndex].answer          
                 }
             });
         }
     };
 
-
     render() {
 
-        const{question, options, opt1, opt2, opt3, opt4, currentIndex, userAnswer,  quizEnd} = this.state;
+        const{question, options, currentIndex, userAnswer, quizEnd} = this.state;
+
+        if(quizEnd) {
+            return (
+                <div>
+                    <h1>Game Over. Final score is {this.state.score} points</h1>
+                </div>
+            )
+        }
 
         return (
             <div>
                 <h2> {question} </h2>
+                {
+                    options.map(option => 
+                        <p key = {options.id} className={`options ${userAnswer === option? "selected" : null}`} 
+                        onClick = {() => this.checkAnswer(option)}
+                        >
+                            {option}
+                        </p>
+                    )
+                }
+
+                {currentIndex < QuizData.length -1 && 
+                    <button disabled = {this.state.disabled} onClick = {this.nextQuestionHander}>
+                        Next Question
+                    </button>
+                }
+                {currentIndex === QuizData.length-1 && 
+                    <button onClick = {this.finishHandler} diabled = {this.state.disabled}>
+                        Finish
+                    </button>
+                }
+
             </div>
         )
     }
 }
+
+export default QuizQuestion
   
-export default QuizQuestion;
 
 
 
