@@ -1,16 +1,24 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
+
 import { ADD_USER } from '../utils/mutations';
-import AuthService from '../utils/auth';
+
+import Auth from '../utils/auth';
 
 function Signup() {
 
-  const [formState, setFormState] = useState({ username: '', email: '', password: '' });
+  const [formState, setFormState] = useState({
+    username: '',
+    email: '',
+    password: '',
+  })
 
-  // update state based on form input changes
-  const handleChange = event => {
-    const { name, value } = event.target;
+  const [addUser, {error}] = useMutation(ADD_USER);
+
+  // update state based on form input changes 
+  const handleChange = (event) => {
+    const{ name, value } = event.target;
 
     setFormState({
       ...formState,
@@ -18,23 +26,22 @@ function Signup() {
     });
   };
 
-  const [addUser, { error }] = useMutation(ADD_USER);
-
-  // submit form (notice the async!)
+  // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    // use try/catch instead of promises to handle errors
     try {
       const { data } = await addUser({
-        variables: { ...formState }
+        variables: { ...formState },
       });
-    
-      AuthService.login(data.addUser.token);
+
+      Auth.login(data.addUser.token);
+      
     } catch (e) {
       console.error(e);
     }
-  };
+   
+  }
 
   return (
     <div className="flex justify-center text-white">
@@ -44,17 +51,15 @@ function Signup() {
         </Link>
 
         <h2 className="mt-4">Signup</h2>
-
-        <form onSubmit={handleFormSubmit}>
-
+        <form onSubmit={handleFormSubmit}> 
           <div className="mt-4">
             <label htmlFor="Username">Username:</label>
             <input
               className="placeholder-gray-900 bg-slate-600 bg-opacity-50 border-none w-full text-white-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
               placeholder="shavetheyak"
               name="username"
-              type="firstName"
-              id="firstName"
+              type="username"
+              id="username"
               value={formState.username}
               onChange={handleChange}
             />
@@ -96,9 +101,7 @@ function Signup() {
           </div>
 
         </form>
-
-        {error && <div>Sign up failed</div>}
-     
+        {error && <div>Signup failed </div>}
       </div>
     </div>
   );
