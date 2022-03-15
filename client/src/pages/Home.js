@@ -12,9 +12,11 @@ function Home() {
           Are you looking for something to distract you from what you really
           should be doing?
         </p>
-        <Link to="/dashboard" className="white-underline text-xl">
-          Click here to shave the yak.
+        <div className='mt-6'>
+        <Link to="/dashboard" className="white-underline text-3xl">
+          Click here to get started.
         </Link>
+        </div>
       </div>
     </div>
   );
