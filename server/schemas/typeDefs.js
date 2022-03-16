@@ -6,8 +6,7 @@ const typeDefs = gql`
     username: String
     email: String
     gameScore: Int
-    gameSessions: [GameSession]
-  }
+  }  
 
   type Auth {
     token: ID!
@@ -38,7 +37,8 @@ const typeDefs = gql`
 
 module.exports = typeDefs;
 
-
+//Game Session Type User Reference Code
+// gameSessions: [GameSession]
 
 //   type GameSession {
 //     _id: ID
