@@ -31,7 +31,7 @@ class QuizQuestion extends Component {
 
     //Obtains user's answer, correct answer and score.  Then increments current index (next question).
     //Then checks to see if the userAnswer is equal to the correct answer, if so it increments the score.
-    nextQuestionHander = () => {
+    nextQuestionHandler = () => {
         const {userAnswer, answer, score} = this.state
 
         console.log("next question button clicked")
@@ -66,7 +66,7 @@ class QuizQuestion extends Component {
         if(this.state.currentIndex !== prevState.currentIndex){
             this.setState(() => {
                 return {
-                    diabled: true,
+                    disabled: true,
 
                 }
             })
@@ -124,12 +124,12 @@ class QuizQuestion extends Component {
                 }
 
                 {currentIndex < QuizData.length -1 && 
-                    <button disabled = {this.state.disabled} onClick = {this.nextQuestionHander}>
+                    <button disabled = {this.state.disabled} onClick = {this.nextQuestionHandler}>
                         Next Question
                     </button>
                 }
                 {currentIndex === QuizData.length-1 && 
-                    <button onClick = {this.finishHandler} diabled = {this.state.disabled}>
+                    <button onClick = {this.finishHandler} disabled = {this.state.disabled}>
                         Finish
                     </button>
                 }
