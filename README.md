@@ -36,10 +36,10 @@ While using the knowledge we've learned to create the application itself, we wan
 
 ## Contributors
 
-* @ashleyviola: server
-* @erin-michon: quiz and site logic
-* @Jrophoff: styling
-* @LSabin23: database and quiz questions
+* [@ashleyviola](https://github.com/ashleyviola): server
+* [@erin-michon](https://github.com/erin-michon): quiz and site logic
+* [@Jrophoff](https://github.com/Jrophoff): styling
+* [@LSabin23](https://github.com/LSabin23): database and quiz questions
 
 
 ## Access
