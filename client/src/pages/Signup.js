@@ -69,7 +69,7 @@ function Signup() {
             <label htmlFor="email">Email:</label>
             <input
               className="placeholder-gray-900 bg-slate-600 bg-opacity-50 border-none w-full text-white-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
-              placeholder="noshave@shavetheyak.com"
+              placeholder="noshave@november.com"
               name="email"
               type="email"
               id="email"
