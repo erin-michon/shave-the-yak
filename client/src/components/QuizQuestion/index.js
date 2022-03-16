@@ -13,12 +13,14 @@ class QuizQuestion extends Component {
         disabled: true
     }
     
+    
 
     //Component that holds the current quiz
     loadQuiz = () => {
+
         const {currentIndex} = this.state //get the current question index
-        
-        console.log(currentIndex)
+               
+        console.log(this.state)
         
         this.setState(() => {
             return {
@@ -32,7 +34,11 @@ class QuizQuestion extends Component {
     //Obtains user's answer, correct answer and score.  Then increments current index (next question).
     //Then checks to see if the userAnswer is equal to the correct answer, if so it increments the score.
     nextQuestionHandler = () => {
+<<<<<<< HEAD
         const {userAnswer, answer, score} = this.state
+=======
+        const {userAnswer, answer, score, currentIndex} = this.state
+>>>>>>> fca50df93220a9ef9af8a16148d6dc6d45960ad8
 
         console.log("next question button clicked")
         console.log(answer)
@@ -46,7 +52,7 @@ class QuizQuestion extends Component {
         }
 
         this.setState({
-            currentIndex: this.state.currentIndex + 1,
+            currentIndex: currentIndex + 1,
             userAnswer: null
         })
 
@@ -63,7 +69,7 @@ class QuizQuestion extends Component {
 
         const{currentIndex} = this.state;
         
-        if(this.state.currentIndex !== prevState.currentIndex){
+        if(currentIndex !== prevState.currentIndex){
             this.setState(() => {
                 return {
                     disabled: true,
@@ -85,7 +91,9 @@ class QuizQuestion extends Component {
     //ADD FUNCTIONALITY TO DETERMINE IF X AMOUNT OF QUESTIONS HAVE BEEN LOST, REFER TO ONENOTE PROJ3 FOR LOGIC
     finishHandler =() => {
 
-        if(this.state.currentIndex === QuizData.length -1){
+        const{currentIndex} = this.state;
+
+        if(currentIndex === QuizData.length -1){
             
             this.setState(() => {
 
@@ -100,12 +108,12 @@ class QuizQuestion extends Component {
 
     render() {
 
-        const{question, options, currentIndex, userAnswer, quizEnd} = this.state;
+        const{question, options, currentIndex, userAnswer, quizEnd, score} = this.state;
 
         if(quizEnd) {
             return (
                 <div>
-                    <h1>Game Over. Final score is {this.state.score} points</h1>
+                    <h1>Game Over. Final score is {score} points</h1>
                 </div>
             )
         }
