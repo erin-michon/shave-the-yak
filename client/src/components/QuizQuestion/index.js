@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {QuizData} from './QuizData';
+import Auth from '../../utils/auth'
 import './style.css';
 
 class QuizQuestion extends Component {
@@ -37,28 +38,28 @@ class QuizQuestion extends Component {
         const {userAnswer, answer, score, currentIndex} = this.state
 
         console.log("next question button clicked")
-        console.log(score + " is score")
-
+        
         //Check for correct answer and increment score
         if(userAnswer === answer){
 
             this.setState({
 
                 score: score + 1
+
             })
 
             console.log("correct answer selected")
-            console.log(score + " is the current score")
           
         } else {
             console.log ("wrong answer selected")
-            console.log(score + " is the current score")
         }
 
         this.setState({
             currentIndex: currentIndex + 1,
             userAnswer: null
         })
+
+        
     }
 
     componentDidMount() {
@@ -110,7 +111,21 @@ class QuizQuestion extends Component {
                     answer: QuizData[currentIndex].answer          
                 }
             });
+        } else {    
+
+            //The quiz has ended; submit/push score to db and redirect the user to the myscores page
+            //Use a handleClick to push using UPDATE_USER
+            //
+
+            Auth.finish()
+
         }
+
+
+
+
+
+
     };
 
     render() {
@@ -147,7 +162,7 @@ class QuizQuestion extends Component {
                 }
                 {currentIndex === QuizData.length-1 && 
                     <button onClick = {this.finishHandler} disabled = {this.state.disabled} className='mt-5 border-transparent rounded border-4 bg-slate-600 hover:bg-slate-800 py-1 px-2'>
-                        Finish
+                        How much did you shave?
                     </button>
                 }
 
