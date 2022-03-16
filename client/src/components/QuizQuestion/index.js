@@ -127,7 +127,7 @@ class QuizQuestion extends Component {
 
         return (
             <div>
-                <h2> {question} </h2>
+                <h2 className='m-5'> {question} </h2>
                 {
                     options.map((option) => 
 
@@ -141,12 +141,12 @@ class QuizQuestion extends Component {
                 }
 
                 {currentIndex < QuizData.length -1 && 
-                    <button disabled = {this.state.disabled} onClick = {this.nextQuestionHandler}>
+                    <button className='mt-5 border-transparent rounded border-4 bg-slate-600 hover:bg-slate-800 py-1 px-2' disabled = {this.state.disabled} onClick = {this.nextQuestionHandler}>
                         Next Question
                     </button>
                 }
                 {currentIndex === QuizData.length-1 && 
-                    <button onClick = {this.finishHandler} disabled = {this.state.disabled}>
+                    <button onClick = {this.finishHandler} disabled = {this.state.disabled} className='mt-5 border-transparent rounded border-4 bg-slate-600 hover:bg-slate-800 py-1 px-2'>
                         Finish
                     </button>
                 }

@@ -6,16 +6,23 @@
 /* The list of options */
 .options {
     padding: 8px;
-    border: 2px solid #000;
+    border: 2px solid white;
+    border-radius: 4px;
     cursor: pointer;
+    margin: 8px
+}
+
+.options:hover {
+    background-color: #252f3f;
+    
 }
 
 ul {
     list-style-type: none;
+    padding: 5px;
 }
 
 body{
-    font-family: Verdana;
-    font-size: 18px;
-    background-color: #2980B9; 
+    
+    font-size: 18px; 
 }
