@@ -23,7 +23,7 @@ const Nav = () => {
 
           {loggedIn && userData ? (
             <>
-              <Link to="/dashboard" className="underline">
+              <Link to="/myscores" className="underline">
               Welcome Back, {capitalize(userData.me.username)}!
               </Link>
             </>
@@ -31,9 +31,11 @@ const Nav = () => {
             " "
           )}
         </nav>
-        <h1 className="p-4 px-10 border rounded border-4 text-3xl tracking-widest">
-          SHAVE THE YAK!
-        </h1>
+        <Link to="/">
+          <h1 className="p-4 px-10 border rounded border-4 text-3xl tracking-widest">
+            SHAVE THE YAK!
+          </h1>
+        </Link>
         <nav className="p-4 text-lg tracking-wide">
           {Auth.loggedIn() ? (
             <>
