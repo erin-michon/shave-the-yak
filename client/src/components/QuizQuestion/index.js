@@ -157,7 +157,7 @@ class QuizQuestion extends Component {
             return (
                 <div>
                     <h1>Game Over. Final score is {score} points</h1>
-                    <button onClick = {this.quizEndHandler(score)}  className='mt-5 border-transparent rounded border-4 bg-slate-600 hover:bg-slate-800 py-1 px-2'>
+                    <button onClick = {this.quizEndHandler(score)}  className='mt-5 border-transparent rounded border-4 focus:bg-slate-600 py-1 px-2'>
                         Submit Score 
                     </button>
                 </div>
