@@ -56,7 +56,7 @@ function MyScores(props) {
                
                 <div>
                     {/* <h2 className="text-2xl text-white pb-5">{capitalize(userData.me.username)}'s Best Score</h2> */}
-                    <h2 className="text-2xl text-white pb-5"> {userParam ? `${user.username}'s` : 'Your'} Most Recent Score</h2>
+                    <h2 className="text-2xl text-white pb-5"> {userParam ? `${user.username}'s` : 'Your'} Best Score</h2>
                         { user.gameScore ? (
                             <>
                                 <div>
