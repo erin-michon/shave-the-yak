@@ -8,6 +8,7 @@ import { DELETE_USER } from '../utils/mutations';
 
 
 function MyScores(props) {
+
     const { username: userParam }  = useParams();
 
     const [deleteUser] = useMutation(DELETE_USER);
@@ -44,6 +45,7 @@ function MyScores(props) {
             console.error(e);
         }
     }
+
     return (
         <div>
             <div className='pb-8 pl-12'>
@@ -52,32 +54,28 @@ function MyScores(props) {
                 </Link>
             </div>
             <div className="grid grid-cols-2 gap-20 mx-12">
-            <div className="my-25 p-4 border rounded border-4 bg-slate-600 bg-opacity-50">
-               
-                <div>
-                    {/* <h2 className="text-2xl text-white pb-5">{capitalize(userData.me.username)}'s Best Score</h2> */}
-                    <h2 className="text-2xl text-white pb-5"> {userParam ? `${user.username}'s` : 'Your'} Best Score</h2>
-                        { user.gameScore ? (
-                            <>
-                                <div>
-                                    <h3 className="text-base text-white pb-5">{user.gameScore}</h3>
-                                </div>
-                            </>
-                            ) : (
-                            <p className="text-white pb-5">You haven't posted a game score yet. Go shave your first Yak!</p>
-                        )} 
+                <div className="my-25 p-4 border rounded border-4 bg-slate-600 bg-opacity-50">
+                    <div>
+                        {/* <h2 className="text-2xl text-white pb-5">{capitalize(userData.me.username)}'s Best Score</h2> */}
+                        <h2 className="text-2xl text-white pb-5"> {userParam ? `${user.username}'s` : 'Your'} Best Score</h2>
+                            { user.gameScore ? (
+                                <>
+                                    <div>
+                                        <h3 className="text-base text-white pb-5">{user.gameScore}</h3>
+                                    </div>
+                                </>
+                                ) : (
+                                <p className="text-white pb-5">You haven't posted a game score yet. Go shave your first Yak!</p>
+                            )} 
+                    </div>
+                </div>
+                <div className="my-25 p-4 border rounded border-4 bg-slate-600 bg-opacity-50">
+                    <h2 className="text-2xl text-white">Done Shaving Yaks?</h2>
+                    <br></br>
+                    <button type="submit" onClick={handleClick} className= 'border-transparent rounded border-4 bg-slate-600 hover:bg-slate-800 py-1 px-2 text-white'>Delete Account</button>
                 </div>
             </div>
-
-            <div className="my-25 p-4 border rounded border-4 bg-slate-600 bg-opacity-50">
-                <h2 className="text-2xl text-white">Done Shaving Yaks?</h2>
-                <br></br>
-                <button type="submit" onClick={handleClick} className= 'border-transparent rounded border-4 bg-slate-600 hover:bg-slate-800 py-1 px-2 text-white'>Delete Account</button>
-            </div>
-        </div>
-        </div>
-        
-       
+        </div>       
     );
   }
   
