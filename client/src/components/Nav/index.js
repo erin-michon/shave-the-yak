@@ -16,6 +16,10 @@ const Nav = () => {
     Auth.logout();
   };
 
+  function refreshPage() {
+    window.location.reload(true)
+  }
+
   return (
     <header>
       <div className="p-4 pb-40 flex flex-row justify-between font-medium">
