@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
 import {QuizData} from './QuizData';
-import Auth from '../../utils/auth'
+import { withApollo } from '@apollo/client/react/hoc';
+// import { useMutation, useQuery } from '@apollo/client';
+import { UPDATE_USER } from '../../utils/mutations';
+import { QUERY_ME } from '../../utils/queries';
+
 import './style.css';
 
 
@@ -15,8 +19,6 @@ class QuizQuestion extends Component {
         disabled: true
     }
     
-    
-
     //Component that holds the current quiz
     loadQuiz = () => {
 
@@ -98,35 +100,54 @@ class QuizQuestion extends Component {
 
     //Determines if the quiz has ended, if so - sets the quizEnd state to true
     //ADD FUNCTIONALITY TO DETERMINE IF X AMOUNT OF QUESTIONS HAVE BEEN LOST, REFER TO ONENOTE PROJ3 FOR LOGIC
-    finishHandler =() => {
+    finishHandler(score) {
 
-        const{currentIndex} = this.state;
+        console.log(score);
 
-        if(currentIndex === QuizData.length -1){
+        this.setState({
+            quizEnd: true
+        })
+
+        console.log("correct answer selected")
+
+        // const [updateUser, { error }] = useMutation(UPDATE_USER)
+        // const { data: userData } = useQuery(QUERY_ME);
+        // const{currentIndex, score} = this.state;
+
+      
+        // if(currentIndex === QuizData.length -1){
             
-            this.setState(() => {
+        //     this.setState(() => {
 
-                return {
-                    question: QuizData[currentIndex].question,
-                    options : QuizData[currentIndex].options,
-                    answer: QuizData[currentIndex].answer          
-                }
-            });
-        } else {    
+        //         return {
+        //             question: QuizData[currentIndex].question,
+        //             options : QuizData[currentIndex].options,
+        //             answer: QuizData[currentIndex].answer          
+        //         }
+        //     });
+        // } else {    
 
             //The quiz has ended; submit/push score to db and redirect the user to the myscores page
             //Use a handleClick to push using UPDATE_USER
             //
+        //    try {
+        //         updateUser({
+        //            variables: {gameScore: score},
+        //        });
+        //        console.log(`${score} was posted to ${userData.username}`)
+        //    } catch (e) {
+        //        console.error(e)
+        //    }
+        // }
+    };
 
-            Auth.finish()
-
-        }
-
-
-
-
-
-
+    quizEndHandler(score) {
+        this.props.client.mutate({
+            mutation: UPDATE_USER,
+            variables: {
+                gameScore: score
+            },
+        });
     };
 
     render() {
@@ -137,6 +158,9 @@ class QuizQuestion extends Component {
             return (
                 <div>
                     <h1>Game Over. Final score is {score} points</h1>
+                    <button onClick = {this.quizEndHandler(score)}  className='mt-5 border-transparent rounded border-4 bg-slate-600 hover:bg-slate-800 py-1 px-2'>
+                        Submit Score 
+                    </button>
                 </div>
             )
         }
@@ -162,7 +186,7 @@ class QuizQuestion extends Component {
                     </button>
                 }
                 {currentIndex === QuizData.length-1 && 
-                    <button onClick = {this.finishHandler} disabled = {this.state.disabled} className='mt-5 border-transparent rounded border-4 bg-slate-600 hover:bg-slate-800 py-1 px-2'>
+                    <button onClick = {this.finishHandler(score)} disabled = {this.state.disabled} className='mt-5 border-transparent rounded border-4 bg-slate-600 hover:bg-slate-800 py-1 px-2'>
                         How much did you shave?
                     </button>
                 }
@@ -172,4 +196,4 @@ class QuizQuestion extends Component {
     }
 }
 
-export default QuizQuestion
+export default withApollo(QuizQuestion)
