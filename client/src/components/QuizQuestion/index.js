@@ -1,5 +1,9 @@
 import React, {Component} from 'react';
+import { Link, Route } from 'react-router-dom';
 import {QuizData} from './QuizData';
+import { withApollo } from '@apollo/client/react/hoc';
+import { UPDATE_USER } from '../../utils/mutations';
+
 import './style.css';
 
 class QuizQuestion extends Component {
@@ -13,8 +17,6 @@ class QuizQuestion extends Component {
         disabled: true
     }
     
-    
-
     //Component that holds the current quiz
     loadQuiz = () => {
 
@@ -37,14 +39,20 @@ class QuizQuestion extends Component {
         const {userAnswer, answer, score, currentIndex} = this.state
 
         console.log("next question button clicked")
-        console.log(answer)
-        console.log(currentIndex)
-
-        //Check if correct answer and increment score
+        
+        //Check for correct answer and increment score
         if(userAnswer === answer){
+
             this.setState({
+
                 score: score + 1
+
             })
+
+            console.log("correct answer selected")
+          
+        } else {
+            console.log ("wrong answer selected")
         }
 
         this.setState({
@@ -52,27 +60,11 @@ class QuizQuestion extends Component {
             userAnswer: null
         })
 
-        console.log(currentIndex + "is the current index")
-
-
+        
     }
 
     componentDidMount() {
         this.loadQuiz();
-    }
-
-    componentDidUpdate(prevProps, prevState){
-
-        const{currentIndex} = this.state;
-        
-        if(currentIndex !== prevState.currentIndex){
-            this.setState(() => {
-                return {
-                    disabled: true,
-
-                }
-            })
-        }
     }
 
     // Check the answer; sets the userAnswer state and enables the next button (disabled = false)
@@ -83,24 +75,85 @@ class QuizQuestion extends Component {
         })
     }
 
-    //Determines if the quiz has ended, if so - sets the quizEnd state to true
-    //ADD FUNCTIONALITY TO DETERMINE IF X AMOUNT OF QUESTIONS HAVE BEEN LOST, REFER TO ONENOTE PROJ3 FOR LOGIC
-    finishHandler =() => {
+    componentDidUpdate(prevProps, prevState){
 
         const{currentIndex} = this.state;
-
-        if(currentIndex === QuizData.length -1){
-            
+        
+        if(currentIndex !== prevState.currentIndex){
             this.setState(() => {
-
                 return {
                     question: QuizData[currentIndex].question,
                     options : QuizData[currentIndex].options,
-                    answer: QuizData[currentIndex].answer          
+                    answer: QuizData[currentIndex].correctOpt          
                 }
-            });
+            })
+
+            this.setState(() => {
+                return {
+                    disabled: true,
+                }
+            })
         }
+    }
+
+    //Determines if the quiz has ended, if so - sets the quizEnd state to true
+    //ADD FUNCTIONALITY TO DETERMINE IF X AMOUNT OF QUESTIONS HAVE BEEN LOST, REFER TO ONENOTE PROJ3 FOR LOGIC
+    finishHandler(score) {
+
+        console.log(score);
+
+        this.setState({
+            quizEnd: true
+        })
+
+        console.log("correct answer selected")
+
+        // const [updateUser, { error }] = useMutation(UPDATE_USER)
+        // const { data: userData } = useQuery(QUERY_ME);
+        // const{currentIndex, score} = this.state;
+
+      
+        // if(currentIndex === QuizData.length -1){
+            
+        //     this.setState(() => {
+
+        //         return {
+        //             question: QuizData[currentIndex].question,
+        //             options : QuizData[currentIndex].options,
+        //             answer: QuizData[currentIndex].answer          
+        //         }
+        //     });
+        // } else {    
+
+            //The quiz has ended; submit/push score to db and redirect the user to the myscores page
+            //Use a handleClick to push using UPDATE_USER
+            //
+        //    try {
+        //         updateUser({
+        //            variables: {gameScore: score},
+        //        });
+        //        console.log(`${score} was posted to ${userData.username}`)
+        //    } catch (e) {
+        //        console.error(e)
+        //    }
+        // }
     };
+   
+    refreshPage() {
+        window.location.hash.reload(true)
+    }
+    
+    quizEndHandler(score) {
+        this.props.client.mutate({
+            mutation: UPDATE_USER,
+            variables: {
+                gameScore: score
+            },
+        });
+        this.refreshPage();
+    };
+
+   
 
     render() {
 
@@ -110,117 +163,42 @@ class QuizQuestion extends Component {
             return (
                 <div>
                     <h1>Game Over. Final score is {score} points</h1>
+                    <Link to="/myscores" onClick = {() => {
+                        this.quizEndHandler(score);
+                        }} >
+                    Submit Score
+                    </Link>
                 </div>
             )
         }
 
         return (
             <div>
-                <h2> {question} </h2>
+                <h2 className='m-5'> {question} </h2>
                 {
-                    options.map(option => 
-                        <p key = {options.id} className={`options ${userAnswer === option? "selected" : null}`} 
-                        onClick = {() => this.checkAnswer(option)}
-                        >
-                            {option}
-                        </p>
+                    options.map((option) => 
+
+                        <ul key = {option} className={`options ${userAnswer === option? "selected" : null}`} 
+                        onClick = {() => this.checkAnswer(option)}>
+                        
+                            <li>{option}</li>
+                                                
+                        </ul>
                     )
                 }
-
                 {currentIndex < QuizData.length -1 && 
-                    <button disabled = {this.state.disabled} onClick = {this.nextQuestionHandler}>
+                    <button className='mt-5 border-transparent rounded border-4 bg-slate-600 hover:bg-slate-800 py-1 px-2' disabled = {this.state.disabled} onClick = {this.nextQuestionHandler}>
                         Next Question
                     </button>
                 }
                 {currentIndex === QuizData.length-1 && 
-                    <button onClick = {this.finishHandler} disabled = {this.state.disabled}>
-                        Finish
+                    <button onClick = {this.finishHandler(score)} disabled = {this.state.disabled} className='mt-5 border-transparent rounded border-4 bg-slate-600 hover:bg-slate-800 py-1 px-2'>
+                        How much did you shave?
                     </button>
                 }
-
             </div>
         )
     }
 }
 
-export default QuizQuestion
-  
-
-
-
-//   return (
-//     <div>
-//         <div>
-//             <h2>QUESTION</h2>
-//             <ul>
-//                 <li>Choice 1</li>
-//                 <li>Choice 2</li>
-//                 <li>Choice 3</li>
-//                 <li>Choice 4</li>
-//             </ul>
-//             <button>Next Question</button>
-//         </div>
-//         <div>
-//             <h2> Your Score</h2>
-//             <h3> Current Score Shown Here</h3>
-//             <button>Submit Score</button>
-//         </div>
-        
-//     </div>
-// )
-
-
-//   render() {
-//     const {
-//         question, options, currentIndex, userAnswer, quizEnd} = this.state //get the current state
-    
-    
-//     if(quizEnd) {
-//         return (
-//             <div>
-//                 <h1>Game Over. Final score is {this.state.score} points</h1>
-//                 <p>The correct Answers for the quiz are</p>
-//                 <ul>
-//                     {QuizData.map((item, index) => (
-//                         <li className='ui floating message options'
-//                             key={index}>
-//                                 {item.answer}
-//                         </li>
-//                     ))}
-//                 </ul>
-//             </div>
-//         )
-//     }
-            
-//     return (
-//         <div>
-//             <h2>{question}</h2>
-//             <span>{`Question ${currentIndex} of ${QuizData.length -1}`}</span>
-//             {options.map(option => (  //for each option, new paragraph
-//                 <p key={option.id} 
-//                 className={`ui floating message options
-//                 ${userAnswer === option ? "selected" : null}
-//                 `}
-//                 onClick= {() => this.checkAnswer(option)}
-
-//                 >
-//                     {option}
-//                 </p>
-//             ))}
-//             {currentIndex < QuizData.length -1 &&
-//             <button 
-//             className="ui inverted button"
-//             disabled = {this.state.disabled}
-//             onClick = {this.nextQuestionHander}
-//                 >Next Question</button>
-//             }
-//                 {currentIndex === QuizData.length -1 &&
-//                 <button
-//                 className="ui inverted button"
-//                 disabled = {this.state.disabled}
-//                 onClick = {this.finishHandler}
-//                 >Finish</button>
-//                 }
-//         </div>
-//     )
-// }
+export default withApollo(QuizQuestion)

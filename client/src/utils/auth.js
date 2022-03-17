@@ -39,6 +39,13 @@ class AuthService {
 
     window.location.assign('/dashboard');
   }
+
+  //push score to db
+  finish() {
+    // this will reload the page and reset the state of the application
+    window.location.assign('/myscores');
+  }
+
   
   // clear token from localStorage and force logout with reload
   logout() {

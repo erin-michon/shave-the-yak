@@ -16,14 +16,18 @@ const Nav = () => {
     Auth.logout();
   };
 
+  function refreshPage() {
+    window.location.reload(true)
+  }
+
   return (
     <header>
       <div className="p-4 pb-40 flex flex-row justify-between font-medium">
-        <nav className="p-4 text-lg tracking-wide">
+        <nav onClick={refreshPage} className="p-4 text-lg tracking-wide">
 
           {loggedIn && userData ? (
             <>
-              <Link to="/dashboard" className="underline">
+              <Link to="/myscores" className="underline">
               Welcome Back, {capitalize(userData.me.username)}!
               </Link>
             </>
@@ -31,9 +35,11 @@ const Nav = () => {
             " "
           )}
         </nav>
-        <h1 className="p-4 px-10 border rounded border-4 text-3xl tracking-widest">
-          SHAVE THE YAK!
-        </h1>
+        <Link to="/">
+          <h1 className="p-4 px-10 border rounded border-4 text-3xl tracking-widest">
+            SHAVE THE YAK!
+          </h1>
+        </Link>
         <nav className="p-4 text-lg tracking-wide">
           {Auth.loggedIn() ? (
             <>

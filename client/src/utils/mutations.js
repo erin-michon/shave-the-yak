@@ -25,10 +25,9 @@ export const ADD_USER = gql`
 `;
 
 export const UPDATE_USER = gql`
-    mutation updateUser($username: String, $email: String, $password: String, $gameScore: Int) {
-        updateUser(username: $username, email: $email, password: $password, gameScore: $gameScore) {
+    mutation updateUser($gameScore: Int) {
+        updateUser(gameScore: $gameScore) {
             username
-            email
             gameScore
         }
     }
