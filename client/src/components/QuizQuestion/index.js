@@ -3,6 +3,7 @@ import {QuizData} from './QuizData';
 import Auth from '../../utils/auth'
 import './style.css';
 
+
 class QuizQuestion extends Component {
 
     state = {
