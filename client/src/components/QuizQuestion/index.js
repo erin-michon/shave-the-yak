@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Link, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import {QuizData} from './QuizData';
 import { withApollo } from '@apollo/client/react/hoc';
 import { UPDATE_USER } from '../../utils/mutations';
