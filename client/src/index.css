@@ -8,6 +8,10 @@
   }
 }
 
+* {
+  z-index: 1;
+}
+
 /* white text underline */
 .white-underline {
   position: relative;
@@ -62,6 +66,7 @@
 
 /* footer */
 footer {
+  z-index: 0;
   position: fixed;
   left: 0;
   bottom: 0;
