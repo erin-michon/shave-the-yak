@@ -48,12 +48,12 @@ function MyScores(props) {
 
     return (
         <div>
-            <div className='pb-8 pl-12'>
+            <div className='pl-12 flex'>
                 <Link to="/dashboard" className="underline">
                     ← Back to Dashboard
                 </Link>
             </div>
-            <div className="grid grid-cols-2 gap-20 mx-12">
+            <div className="grid sm-grid-cols-2 h-screen items-center sm:gap-20 mx-12">
                 <div className="my-25 p-4 border rounded border-4 bg-slate-600 bg-opacity-50">
                     <div>
                         {/* <h2 className="text-2xl text-white pb-5">{capitalize(userData.me.username)}'s Best Score</h2> */}
