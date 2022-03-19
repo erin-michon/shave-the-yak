@@ -22,7 +22,7 @@ const Nav = () => {
 
   return (
     <header>
-      <div className="p-4 pb-40 flex flex-row justify-between font-medium">
+      <div className="p-4 flex flex-row justify-between font-medium">
         <nav onClick={refreshPage} className="p-4 text-lg tracking-wide">
 
           {loggedIn && userData ? (
@@ -43,7 +43,7 @@ const Nav = () => {
         <nav className="p-4 text-lg tracking-wide">
           {Auth.loggedIn() ? (
             <>
-              <a to="/" onClick={logout} className="underline">Logout</a>
+              <Link to="/" onClick={logout} className="underline">Logout</Link>
             </>
           ) : (
             <>

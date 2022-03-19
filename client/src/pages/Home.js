@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function Home() {
   return (
-    <div className="px-32 py-40 flex justify-center text-center text-white">
+    <div className="flex justify-center h-screen items-center text-center text-white">
       <div className="my-25 p-4 border rounded border-4 bg-slate-600 bg-opacity-50 justify-center">
         <h1 className="text-center text-3xl text-white">
           It is time to Start!

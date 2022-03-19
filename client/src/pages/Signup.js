@@ -44,7 +44,7 @@ function Signup() {
   }
 
   return (
-    <div className="flex justify-center text-white">
+    <div className="flex justify-center h-screen items-center text-white">
       <div className="p-4 border rounded border-4 bg-slate-600 bg-opacity-50 place-content-center">
         <Link to="/login" className="underline">
           ← Go to Login

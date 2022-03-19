@@ -5,11 +5,6 @@ module.exports = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'hero': "url('./assets/images/yak.jpg')",
-        'hero-1': "url('./assets/images/yak.jpg')",
-        
-      }
     },
   },
   plugins: [],
