@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
-import { Link, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import {QuizData} from './QuizData';
 import { withApollo } from '@apollo/client/react/hoc';
 import { UPDATE_USER } from '../../utils/mutations';
 
 import './style.css';
+
 
 class QuizQuestion extends Component {
 
@@ -106,37 +107,6 @@ class QuizQuestion extends Component {
             quizEnd: true
         })
 
-        console.log("correct answer selected")
-
-        // const [updateUser, { error }] = useMutation(UPDATE_USER)
-        // const { data: userData } = useQuery(QUERY_ME);
-        // const{currentIndex, score} = this.state;
-
-      
-        // if(currentIndex === QuizData.length -1){
-            
-        //     this.setState(() => {
-
-        //         return {
-        //             question: QuizData[currentIndex].question,
-        //             options : QuizData[currentIndex].options,
-        //             answer: QuizData[currentIndex].answer          
-        //         }
-        //     });
-        // } else {    
-
-            //The quiz has ended; submit/push score to db and redirect the user to the myscores page
-            //Use a handleClick to push using UPDATE_USER
-            //
-        //    try {
-        //         updateUser({
-        //            variables: {gameScore: score},
-        //        });
-        //        console.log(`${score} was posted to ${userData.username}`)
-        //    } catch (e) {
-        //        console.error(e)
-        //    }
-        // }
     };
    
     refreshPage() {
@@ -162,8 +132,8 @@ class QuizQuestion extends Component {
         if(quizEnd) {
             return (
                 <div>
-                    <h1>Game Over. Final score is {score} points</h1>
-                    <Link to="/myscores" onClick = {() => {
+                    <h1 className = "text-2xl">Game Over. Final score is {score} points</h1>
+                    <Link className = "white-underline text-3xl" to="/myscores" onClick = {() => {
                         this.quizEndHandler(score);
                         }} >
                     Submit Score

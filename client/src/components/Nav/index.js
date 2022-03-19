@@ -22,8 +22,8 @@ const Nav = () => {
 
   return (
     <header>
-      <div className="p-4 flex flex-row justify-between font-medium">
-        <nav onClick={refreshPage} className="p-4 text-lg tracking-wide">
+      <div className="p-4 pb-40 flex flex-row justify-between font-medium">
+        <nav onClick={refreshPage} className="p-4 text-lg tracking-wide basis-1/4">
 
           {loggedIn && userData ? (
             <>
@@ -35,12 +35,14 @@ const Nav = () => {
             " "
           )}
         </nav>
+        <nav>
         <Link to="/">
-          <h1 className="p-4 px-10 border rounded border-4 text-3xl tracking-widest">
+          <h1 className="p-4 px-10 border rounded border-4 text-3xl tracking-widest basis-1/2">
             SHAVE THE YAK!
           </h1>
         </Link>
-        <nav className="p-4 text-lg tracking-wide">
+        </nav>
+        <nav className="p-4 text-lg text-right tracking-wide basis-1/4">
           {Auth.loggedIn() ? (
             <>
               <Link to="/" onClick={logout} className="underline">Logout</Link>
